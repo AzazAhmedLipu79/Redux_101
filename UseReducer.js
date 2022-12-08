@@ -5,8 +5,8 @@ function App() {
 const initState = 10;
 
 const reducer = (state,action) => {
-  if(action.type ==="Increase"){
-    return state+1;
+  if(action.type ==="Increase"){  
+    return state + (action.payload || 1);
   }
   else if(action.type === "Decrease"){
     return state-1;
@@ -20,6 +20,7 @@ const reducer = (state,action) => {
       <code>{state}</code>
       <br/>
       <button onClick={()=> dispatch({type:"Increase"})}>Increase</button>
+      <button onClick={()=> dispatch({type:"Increase", payload:5})}>Increase 5+</button>
       <button onClick={()=> dispatch({type:"Decrease"})}>Decrease</button>
     </div>
   );
